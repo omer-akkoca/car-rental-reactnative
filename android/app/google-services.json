@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "612662661888",
+    "project_id": "rentcarreactnative-a875c",
+    "storage_bucket": "rentcarreactnative-a875c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612662661888:android:5a1231b06e491dbfdf19e5",
+        "android_client_info": {
+          "package_name": "com.car_rental"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Vo31SOS3OLcsfUNKYW5z01GEC4h-SK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
