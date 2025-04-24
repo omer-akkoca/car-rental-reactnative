@@ -1,4 +1,4 @@
-//export { default as P } from "./p.tsx";
 import P from "./p.tsx"
+import CImage from "./image.tsx"
 
-export { P };
+export { P, CImage };
