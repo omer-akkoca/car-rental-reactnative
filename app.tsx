@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { ThemeProvider } from "./src/providers";
-import { Onboarding } from "./src/pages";
+import { CarList } from "./src/pages";
 import SystemNavigationBar from 'react-native-system-navigation-bar';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const App = (): React.JSX.Element => {
 
@@ -9,10 +10,12 @@ const App = (): React.JSX.Element => {
         SystemNavigationBar.setNavigationColor('translucent');
     }, [])
 
-    return(
-        <ThemeProvider>
-            <Onboarding/>
-        </ThemeProvider>
+    return (
+        <SafeAreaProvider>
+            <ThemeProvider>
+                <CarList />
+            </ThemeProvider>
+        </SafeAreaProvider>
     )
 }
 
