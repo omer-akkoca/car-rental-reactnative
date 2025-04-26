@@ -76,3 +76,4 @@ yarn-error.log
 
 # mine ignores
 package-lock.json
+/android/app/google-services.json
