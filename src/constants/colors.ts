@@ -9,6 +9,7 @@ export const lightTheme: IColors = {
     onboardingBg: "#2c2b34",
     pageBg: "#fff",
     carCardBg: "#f3f3f3",
+    moreCardBg: "#212020",
 }
 
 export const darkTheme: IColors = {
@@ -20,4 +21,5 @@ export const darkTheme: IColors = {
     onboardingBg: "#2c2b34",
     pageBg: "#fff",
     carCardBg: "#f3f3f3",
+    moreCardBg: "#212020",
 }

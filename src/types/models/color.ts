@@ -7,6 +7,7 @@ interface IColors{
     onboardingBg: string,
     pageBg: string,
     carCardBg: string,
+    moreCardBg: string,
 }
 
 export default IColors;
