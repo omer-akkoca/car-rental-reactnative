@@ -5,7 +5,7 @@ interface IHorizontalLayout extends PropsWithChildren{
     justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly",
     align?: FlexAlignType,
     gap?: number,
-    customStyle?: ViewStyle
+    customStyle?: ViewStyle | ViewStyle[]
 }
 
 const HorizontalLayout = ({
