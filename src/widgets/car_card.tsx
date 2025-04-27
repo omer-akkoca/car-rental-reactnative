@@ -1,16 +1,21 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../providers";
-import { ICar } from "../types";
+import { ICar, NavigationProp } from "../types";
 import { CImage, HorizontalLayout, P } from "../components";
 import { carImage, GpsIcon, PumpIcon } from "../../assets/images";
+import { useNavigation } from "@react-navigation/native";
 
 const CarCard = ({ car }: { car: ICar }) => {
 
+    const navigation = useNavigation<NavigationProp>();
     const { colors } = useTheme()
 
     return (
-        <TouchableOpacity activeOpacity={0.9}>
+        <TouchableOpacity
+            activeOpacity={0.9}
+            onPress={() => navigation.navigate("car_details", { car })}
+        >
             <View style={{ ...style.container, backgroundColor: colors.carCardBg, shadowColor: colors.black }}>
                 <CImage
                     local={carImage}
@@ -23,11 +28,11 @@ const CarCard = ({ car }: { car: ICar }) => {
                     <HorizontalLayout gap={12}>
                         <HorizontalLayout gap={4}>
                             <GpsIcon color={colors.black} width={16} height={16} />
-                            <P color="black">{car.distance}</P>
+                            <P color="black">{car.distance}KM</P>
                         </HorizontalLayout>
                         <HorizontalLayout gap={4}>
                             <PumpIcon color={colors.black} width={16} height={16} />
-                            <P color="black">{car.fuelCapacity}</P>
+                            <P color="black">{car.fuelCapacity}L</P>
                         </HorizontalLayout>
                     </HorizontalLayout>
                     <P color="black" size={16}>{`$${car.pricePerHour.toFixed(2)}`}</P>

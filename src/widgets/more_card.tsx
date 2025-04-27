@@ -3,17 +3,19 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../providers";
 import { shadowStyle } from "../constants/styles";
 import { HorizontalLayout, P, Space } from "../components";
-import { ICar } from "../types";
+import { ICar, NavigationProp } from "../types";
 import { BatteryIcon, CarIcon, RighChevrontIcon } from "../../assets/images";
+import { useNavigation } from "@react-navigation/native";
 
 const MoreCard = ({ car }: { car: ICar }) => {
 
+    const navigation = useNavigation<NavigationProp>();
     const { colors } = useTheme()
 
     return (
         <TouchableOpacity
             activeOpacity={0.75}
-            onPress={() => null}
+            onPress={() => navigation.navigate("car_details", { car })}
         >
             <HorizontalLayout
                 justify="space-between"

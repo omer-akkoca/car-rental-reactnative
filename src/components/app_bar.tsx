@@ -1,12 +1,13 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { colorsType } from "../types";
+import { colorsType, NavigationProp } from "../types";
 import { useTheme } from "../providers";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { abh } from "../constants/responsive";
 import HorizontalLayout from "./horizontal_layout";
 import { BackArrowIcon } from "../../assets/images";
 import P from "./p";
+import { useNavigation } from "@react-navigation/native";
 
 type IAppBar = {
     title: string,
@@ -22,6 +23,7 @@ const AppBar = ({
     actions = [],
 }: IAppBar): React.JSX.Element => {
 
+    const { goBack } = useNavigation<NavigationProp>()
     const { colors } = useTheme()
     const { top } = useSafeAreaInsets()
 
@@ -32,7 +34,7 @@ const AppBar = ({
                     {
                         leading ?? (
                             <TouchableOpacity
-                                onPress={() => null}
+                                onPress={() => goBack()}
                                 activeOpacity={0.75}
                             >
                                 <BackArrowIcon color="black" width={16} height={16} />

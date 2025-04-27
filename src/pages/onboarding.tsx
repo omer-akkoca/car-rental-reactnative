@@ -4,9 +4,13 @@ import { useTheme } from "../providers";
 import { CImage, P } from "../components";
 import { onboardingImage } from "../../assets/images";
 import { height, width } from "../constants/responsive";
+import { useNavigation } from "@react-navigation/native";
+import { NavigationProp } from "../types";
+
 
 const OnboardingPage = () => {
 
+    const navigation = useNavigation<NavigationProp>();
     const { colors } = useTheme()
 
     return (
@@ -29,6 +33,7 @@ const OnboardingPage = () => {
                 <TouchableOpacity
                     activeOpacity={0.75}
                     style={{ ...styles.button, backgroundColor: colors.white, shadowColor: colors.black }}
+                    onPress={() => navigation.navigate("car_list")}
                 >
                     <P color="black" size={16} weight="bold" align="center">Let's Go</P>
                 </TouchableOpacity>
