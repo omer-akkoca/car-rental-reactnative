@@ -1,17 +1,18 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { AppBar, CImage, HorizontalLayout, P, Space } from "../components";
-import { ICar } from "../types";
+import { NavigationProp, RootStackParamList } from "../types";
 import { useTheme } from "../providers";
 import { CarCard, MoreCard } from "../widgets";
 import { shadowStyle } from "../constants/styles";
 import { mapsImage, userAvatarImage } from "../../assets/images";
+import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 
 const CarDetails = () => {
 
-    const car: ICar = { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 };
-
+    const navigation = useNavigation<NavigationProp>()
     const { colors } = useTheme()
+    const { params: { car } } = useRoute<RouteProp<RootStackParamList, "car_details">>()
 
     return(
         <View style={{ flex: 1, backgroundColor: colors.pageBg }}>
@@ -23,7 +24,7 @@ const CarDetails = () => {
                     <CarCard car={car}/>
                 </View>
                 <HorizontalLayout customStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}>
-                    <View style={[styles.userInfoContainer, shadowStyle("black"), { backgroundColor: colors.white }]}>
+                    <View style={[styles.userInfoContainer, shadowStyle, { backgroundColor: colors.white, shadowColor: colors.black }]}>
                         <CImage
                             local={userAvatarImage}
                             width={80}
@@ -34,13 +35,17 @@ const CarDetails = () => {
                         <P color="grey">$4,253</P>
                     </View>
                     <Space width={16}/>
-                    <View style={[styles.mapsContainer, shadowStyle("black"), { backgroundColor: colors.white }]}>
+                    <TouchableOpacity
+                        activeOpacity={0.75}
+                        style={[styles.mapsContainer, shadowStyle, { backgroundColor: colors.white, shadowColor: colors.black }]}
+                        onPress={() => navigation.navigate("map_details", { car })}
+                    >
                         <CImage
                             local={mapsImage}
                             height={175}
                             width={"100%"}
                         />
-                    </View>
+                    </TouchableOpacity>
                 </HorizontalLayout>
                 <View style={{ paddingHorizontal: 16, gap: 8 }}>
                     <MoreCard car={car}/>
