@@ -10,6 +10,7 @@ export const lightTheme: IColors = {
     pageBg: "#fff",
     carCardBg: "#f3f3f3",
     moreCardBg: "#212020",
+    gunmetal: "#2c2b34",
 }
 
 export const darkTheme: IColors = {
@@ -22,4 +23,5 @@ export const darkTheme: IColors = {
     pageBg: "#fff",
     carCardBg: "#f3f3f3",
     moreCardBg: "#212020",
+    gunmetal: "#2c2b34",
 }

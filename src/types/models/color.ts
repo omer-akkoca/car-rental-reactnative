@@ -8,6 +8,7 @@ interface IColors{
     pageBg: string,
     carCardBg: string,
     moreCardBg: string,
+    gunmetal: string,
 }
 
 export default IColors;
