@@ -19,7 +19,7 @@ const MoreCard = ({ car }: { car: ICar }) => {
         >
             <HorizontalLayout
                 justify="space-between"
-                customStyle={[shadowStyle("black"), styles.container, { backgroundColor: colors.moreCardBg }]}
+                customStyle={[shadowStyle, styles.container, { backgroundColor: colors.moreCardBg, shadowColor: colors.black }]}
             >
                 <View style={{ flex: 1 }}>
                     <P color="white" size={16} weight="bold">{car.model}</P>
