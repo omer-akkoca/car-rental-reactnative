@@ -11,6 +11,8 @@ import { useNavigation } from "@react-navigation/native";
 
 type IAppBar = {
     title: string,
+    titleColor?: colorsType,
+    backIconColor?: colorsType,
     bgColor?: colorsType,
     leading?: React.JSX.Element,
     actions?: React.JSX.Element[]
@@ -18,6 +20,8 @@ type IAppBar = {
 
 const AppBar = ({
     title = "A Title",
+    titleColor= "black",
+    backIconColor= "black",
     bgColor = "white",
     leading = undefined,
     actions = [],
@@ -37,13 +41,13 @@ const AppBar = ({
                                 onPress={() => goBack()}
                                 activeOpacity={0.75}
                             >
-                                <BackArrowIcon color="black" width={16} height={16} />
+                                <BackArrowIcon color={backIconColor} width={16} height={16} />
                             </TouchableOpacity>
                         )
                     }
                 </View>
                 <View style={styles.center}>
-                    <P color="black" size={18} align="center" weight="bold">{title}</P>
+                    <P color={titleColor} size={18} align="center" weight="bold">{title}</P>
                 </View>
                 <View style={styles.actions}>
                     {
