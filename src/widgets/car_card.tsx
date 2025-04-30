@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../providers";
 import { ICar, NavigationProp } from "../types";
 import { CImage, HorizontalLayout, P } from "../components";
-import { carImage, GpsIcon, PumpIcon } from "../../assets/images";
+import { GpsIcon, PumpIcon } from "../../assets/images";
 import { useNavigation } from "@react-navigation/native";
 
 const CarCard = ({ car }: { car: ICar }) => {
@@ -18,7 +18,7 @@ const CarCard = ({ car }: { car: ICar }) => {
         >
             <View style={{ ...style.container, backgroundColor: colors.carCardBg, shadowColor: colors.black }}>
                 <CImage
-                    local={carImage}
+                    url={car.image}
                     width={"100%"}
                     height={120}
                     mode="contain"

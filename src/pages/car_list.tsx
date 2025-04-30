@@ -5,30 +5,23 @@ import { ICar } from "../types";
 import { CarCard } from "../widgets";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AppBar } from "../components";
+import { useCollection } from "../hooks/useCollection";
 
 const CarList = () => {
     
     const { colors } = useTheme()
     const { bottom } = useSafeAreaInsets()
 
-    const cars: ICar[] = [
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-        { model: "Fortune FR", distance: 870, fuelCapacity: 50, pricePerHour: 45 },
-    ]
+    const { data: cars } = useCollection<ICar>("cars")
 
     return(
         <View style={{ flex: 1, backgroundColor: colors.pageBg }}>
             <AppBar title="Choose Your Car"/>
             <FlatList
                 data={cars}
-                renderItem={({index, item}) => {
-                    return <CarCard car={item}/>
+                renderItem={(props) => {
+                    const car = props.item;
+                    return <CarCard car={car}/>
                 }}
                 ItemSeparatorComponent={() => <View style={{ height: 16 }}/>}
                 contentContainerStyle={{ padding: 16, paddingBottom: bottom + 16 }}
