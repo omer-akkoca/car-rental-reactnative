@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../providers";
 import { RouteProp, useRoute } from "@react-navigation/native";
@@ -68,7 +68,7 @@ const MapDetails = () => {
                     </View>
                     <View style={{ position: "absolute", top: 25, right: 15 }}>
                         <CImage
-                            local={whiteCarImage}
+                            url={car.image}
                             width={190}
                             height={125}
                             mode="contain"

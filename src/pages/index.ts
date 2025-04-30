@@ -1,6 +1,6 @@
 import Onboarding from "./onboarding.tsx";
 import CarList from "./car_list.tsx";
 import CarDetails from "./car_details.tsx";
-import MapDetails from "./map_details.tsx";
+import CarMap from "./car_map.tsx";
 
-export { Onboarding, CarList, CarDetails, MapDetails };
+export { Onboarding, CarList, CarDetails, CarMap };
