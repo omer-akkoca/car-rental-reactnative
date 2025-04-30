@@ -16,7 +16,10 @@ const CarList = () => {
 
     return(
         <View style={{ flex: 1, backgroundColor: colors.pageBg }}>
-            <AppBar title="Choose Your Car"/>
+            <AppBar
+                title="Choose Your Car"
+                leading={<></>}
+            />
             <FlatList
                 data={cars}
                 renderItem={(props) => {

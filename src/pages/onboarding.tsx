@@ -33,7 +33,7 @@ const OnboardingPage = () => {
                 <TouchableOpacity
                     activeOpacity={0.75}
                     style={{ ...styles.button, backgroundColor: colors.white, shadowColor: colors.black }}
-                    onPress={() => navigation.navigate("car_list")}
+                    onPress={() => navigation.replace("car_list")}
                 >
                     <P color="black" size={16} weight="bold" align="center">Let's Go</P>
                 </TouchableOpacity>
