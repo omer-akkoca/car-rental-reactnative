@@ -6,16 +6,17 @@ import { onboardingImage } from "../../assets/images";
 import { height, width } from "../constants/responsive";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationProp } from "../types";
-
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const OnboardingPage = () => {
 
     const navigation = useNavigation<NavigationProp>();
     const { colors } = useTheme()
+    const { bottom } = useSafeAreaInsets()
 
     return (
         <View style={{ flex: 1, backgroundColor: colors.onboardingBg }}>
-            <View style={{ flex: 2 }}>
+            <View style={{ flex: 1 }}>
                 <CImage
                     local={onboardingImage}
                     height={height * (3 / 5)}
@@ -23,7 +24,7 @@ const OnboardingPage = () => {
                     mode="cover"
                 />
             </View>
-            <View style={{ flex: 1, paddingHorizontal: 32 }}>
+            <View style={{ paddingHorizontal: 32, paddingTop: 16, paddingBottom: bottom + 16 }}>
                 <P color="white" size={32} weight="bold" align="center">Premium cars.</P>
                 <P color="white" size={32} weight="bold" align="center">Enjoy the luxury.</P>
                 <View style={{ height: 10 }} />

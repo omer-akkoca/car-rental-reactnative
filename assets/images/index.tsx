@@ -1,11 +1,9 @@
 import Svg, { G, Path, SvgProps } from "react-native-svg";
 import onboardingImage from "./onboarding.png";
-import carImage from "./car_image.png";
 import userAvatarImage from "./user.png";
 import mapsImage from "./maps.png";
-import whiteCarImage from "./white_car.png";
 
-export { onboardingImage, carImage, userAvatarImage, mapsImage, whiteCarImage }
+export { onboardingImage, userAvatarImage, mapsImage }
 
 export const GpsIcon = (props: SvgProps) => (
     <Svg

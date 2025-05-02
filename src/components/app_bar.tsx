@@ -8,6 +8,7 @@ import HorizontalLayout from "./horizontal_layout";
 import { BackArrowIcon } from "../../assets/images";
 import P from "./p";
 import { useNavigation } from "@react-navigation/native";
+import { shadowStyle } from "../constants/styles";
 
 type IAppBar = {
     title: string,
@@ -20,9 +21,9 @@ type IAppBar = {
 
 const AppBar = ({
     title = "A Title",
-    titleColor= "black",
-    backIconColor= "black",
-    bgColor = "white",
+    titleColor= "white",
+    backIconColor= "white",
+    bgColor = "gunmetal",
     leading = undefined,
     actions = [],
 }: IAppBar): React.JSX.Element => {
@@ -68,10 +69,7 @@ const AppBar = ({
 
 const styles = StyleSheet.create({
     container: {
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 1,
-        elevation: 5,
+        ...shadowStyle
     },
     inner: {
         height: abh,
@@ -92,6 +90,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         alignItems: "center",
         flexDirection: "row",
+        gap: 8,
     },
 })
 

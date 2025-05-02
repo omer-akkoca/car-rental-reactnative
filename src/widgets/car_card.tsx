@@ -6,15 +6,19 @@ import { CImage, HorizontalLayout, P } from "../components";
 import { GpsIcon, PumpIcon } from "../../assets/images";
 import { useNavigation } from "@react-navigation/native";
 
-const CarCard = ({ car }: { car: ICar }) => {
+const CarCard = ({ car, navigate= true }: { car: ICar, navigate?: boolean }) => {
 
     const navigation = useNavigation<NavigationProp>();
     const { colors } = useTheme()
 
     return (
         <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => navigation.navigate("car_details", { car })}
+            activeOpacity={navigate ? 0.9 : 1}
+            onPress={() => {
+                if (navigate) {
+                    navigation.navigate("car_details", { car })
+                }
+            }}
         >
             <View style={{ ...style.container, backgroundColor: colors.carCardBg, shadowColor: colors.black }}>
                 <CImage
