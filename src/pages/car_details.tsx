@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Animated, ScrollView, StyleSheet, TouchableOpacity, useAnimatedValue, View } from "react-native";
 import { AppBar, CImage, HorizontalLayout, P, Space } from "../components";
 import { ICar, NavigationProp, RootStackParamList } from "../types";
@@ -12,6 +12,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const CarDetails = () => {
 
+    const scrollRef = useRef<ScrollView>(null);
     const scaleAnim = useAnimatedValue(1);
 
     const navigation = useNavigation<NavigationProp>()
@@ -20,6 +21,10 @@ const CarDetails = () => {
     const { params: { car } } = useRoute<RouteProp<RootStackParamList, "car_details">>()
 
     const { data: cars } = useCollection<ICar>("cars")
+
+    useEffect(() => {
+        scrollRef.current?.scrollTo({ y: 0, animated: false })
+    }, [car])
 
     useEffect(() => {
         const animation = Animated.timing(scaleAnim, {
@@ -36,11 +41,12 @@ const CarDetails = () => {
             <AppBar title="Information" />
             <View style={{ flex: 1 }}>
                 <ScrollView
+                    ref={scrollRef}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{ paddingBottom: bottom + 16 }}
                 >
                     <View style={{ padding: 16 }}>
-                        <CarCard car={car} navigate={false}/>
+                        <CarCard car={car} navigate={false} />
                     </View>
                     <HorizontalLayout customStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}>
                         <View style={[styles.userInfoContainer, shadowStyle, { backgroundColor: colors.white, shadowColor: colors.black }]}>
